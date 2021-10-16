@@ -1,20 +1,22 @@
 'use strict';
-function Robot(name, year, owner) {
-    this.name = name;
-    this.year = year;
-    this.owner = owner;
+class Robot {
+    constructor(name, year, owner) {
+        this.name = name;
+        this.year = year;
+        this.owner = owner;
+    }
+
+    reportError() {
+        console.log(this.name + ' says ' + this.errorMessage);
+    }
+
+    spillWater() {
+        this.errorMessage = 'I appear to have a short circuit!';
+    }
 }
 
 Robot.prototype.maker = 'ObjectsRUs';
 Robot.prototype.errorMessage = 'All systems go.';
-
-Robot.prototype.reportError = function () {
-    console.log(this.name + ' says ' + this.errorMessage);
-};
-
-Robot.prototype.spillWater = function () {
-    this.errorMessage = 'I appear to have a short circuit!';
-};
 
 let robby = new Robot('Robby', 1956, 'Dr. Morbius');
 let rosie = new Robot('Rosie', 1962, 'George Jetson');
